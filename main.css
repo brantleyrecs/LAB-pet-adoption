@@ -2,10 +2,19 @@ body {
   background-color: bisque;
 }
 
+#btn {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
 #app {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   margin: 10px;
 }
 
