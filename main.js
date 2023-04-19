@@ -240,12 +240,13 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
-
-  const targetingApp = document.querySelector("#app")
-  console.log(targetingApp);
-
+  const renderToDom = (divId, htmlToRender) => {
+    const selectedDiv = document.querySelector(divId)
+    selectedDiv.innerHTML = htmlToRender
+  }
+const cardsOnDom = (array) => {
   let domString = "";
-  for (const pet of pets) {
+  for (const pet of array) {
     domString += `<div class="card" style="width: 18rem;">
   <img src="${pet.imageUrl}" class="card-img-top" alt="${pet.name}">
   <div class="card-body">
@@ -257,4 +258,41 @@ const pets = [
 </div>`
   }
   
-  targetingApp.innerHTML = domString
+  renderToDom('#app', domString)
+}
+  
+const filter = (array, typeString) => {
+  const typeArray = []
+
+  for (const pet of array) {
+    if (pet.type === typeString) {
+      typeArray.push(pet)
+    }
+  }
+
+  return typeArray
+}
+
+const allPetsButton = document.querySelector('#all-pets')
+const dogsButton = document.querySelector('#dogs')
+const catsButton = document.querySelector('#cats')
+const dinosButton = document.querySelector('#dinos')
+
+allPetsButton.addEventListener('click', () => {
+  cardsOnDom(pets)
+})
+
+dogsButton.addEventListener('click', () => {
+  const dogPets = filter(pets, 'dog')
+  cardsOnDom(dogPets)
+})
+
+catsButton.addEventListener('click', () => {
+  const catPets = filter(pets, 'cat')
+  cardsOnDom(catPets)
+})
+
+dinosButton.addEventListener('click', () => {
+  const dinoPets = filter(pets, 'dino')
+  cardsOnDom(dinoPets)
+})
