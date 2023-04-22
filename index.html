@@ -31,13 +31,40 @@
       <!-- <label for="formGroupExampleInput2" class="form-label">URL</label> -->
       <input type="url" class="form-control" id="url" placeholder="URL">
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
   </form>
   <div id="btn">
     <button id="all-pets" type="button" class="btn btn-primary">All Pets</button>
     <button id="dogs" type="button" class="btn btn-success">Dogs</button>
     <button id="cats" type="button" class="btn btn-danger">Cats</button>
     <button id="dinos" type="button" class="btn btn-warning">Dinos</button>
+    <button id="addPet" class="btn btn-info open-button" onclick="openForm()">Add A Pet</button>
+    <div class="for-popup" id="myForm">
+      <form action="/action_page.php" class="form-container">
+        <div class="mb-3">
+          <!-- <label for="formGroupExampleInput" class="form-label">Name</label> -->
+          <input type="text" class="form-control" id="name" placeholder="Name">
+        </div>
+        <div class="mb-3">
+          <!-- <label for="formGroupExampleInput2" class="form-label">Color</label> -->
+          <input type="text" class="form-control" id="color" placeholder="Color">
+        </div>
+        <div class="mb-3">
+          <!-- <label for="formGroupExampleInput" class="form-label">Special Skills</label> -->
+          <input type="text" class="form-control" id="specialSkill" placeholder="Special Skill">
+        </div>
+        <div class="mb-3">
+          <!-- <label for="formGroupExampleInput2" class="form-label">Type</label> -->
+          <input type="text" class="form-control" id="type" placeholder="Type">
+        </div>
+        <div class="mb-3">
+          <!-- <label for="formGroupExampleInput2" class="form-label">URL</label> -->
+          <input type="url" class="form-control" id="url" placeholder="URL">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="close" onclick="closeForm()" class="btn btn-success close">Close</button>
+      </form>
+    </div>
   </div>
   <div id="app"></div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
