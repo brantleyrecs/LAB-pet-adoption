@@ -261,6 +261,8 @@ const cardsOnDom = (array) => {
   
   renderToDom('#app', domString)
 }
+
+
   
 const filter = (array, typeString) => {
   const typeArray = []
@@ -280,6 +282,14 @@ const filter = (array, typeString) => {
 //     specialSkill: "Gives sincere apologies.",
 //     type: "cat",
 //     imageUrl: "http://kittentoob.com/wp-content/uploads/2015/06/funny-cat-with-a-towel.jpg",
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block"
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none"
+}
 
 // 1. select/target the form on the DOM
 const form = document.querySelector('form')
