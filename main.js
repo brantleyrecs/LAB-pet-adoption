@@ -273,6 +273,35 @@ const filter = (array, typeString) => {
   return typeArray
 }
 
+// id: 1,
+//     name: "Dusty",
+//     color: "Green",
+//     specialSkill: "Gives sincere apologies.",
+//     type: "cat",
+//     imageUrl: "http://kittentoob.com/wp-content/uploads/2015/06/funny-cat-with-a-towel.jpg",
+
+// 1. select/target the form on the DOM
+const form = document.querySelector('form')
+// 2. create a function that grabs all the values from the form, pushes the new object to the array, then repaints the DOM with the new teammate
+const newPet = (e) => {
+  e.preventDefault();
+
+  const newPetObj = {
+    id: pets.length + 1,
+    name: document.querySelector("#name").value,
+    color: document.querySelector("#color").value,
+    specialSkill: document.querySelector("#specialSkill").value,
+    type: document.querySelector("#type").value,
+    imageUrl: document.querySelector("#url").value,
+  }
+
+  pets.push(newPetObj)
+  cardsOnDom(pets)
+  form.reset()
+}
+// 3. Add an event listener for the form submit and pass it the function (callback)
+form.addEventListener('submit', newPet)
+
 const allPetsButton = document.querySelector('#all-pets')
 const dogsButton = document.querySelector('#dogs')
 const catsButton = document.querySelector('#cats')
