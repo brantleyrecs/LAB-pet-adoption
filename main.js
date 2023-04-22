@@ -276,24 +276,8 @@ const filter = (array, typeString) => {
   return typeArray
 }
 
-// id: 1,
-//     name: "Dusty",
-//     color: "Green",
-//     specialSkill: "Gives sincere apologies.",
-//     type: "cat",
-//     imageUrl: "http://kittentoob.com/wp-content/uploads/2015/06/funny-cat-with-a-towel.jpg",
-
-function openForm() {
-  document.getElementById("myForm").style.display = "block"
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none"
-}
-
-// 1. select/target the form on the DOM
 const form = document.querySelector('form')
-// 2. create a function that grabs all the values from the form, pushes the new object to the array, then repaints the DOM with the new teammate
+
 const newPet = (e) => {
   e.preventDefault();
 
@@ -310,8 +294,12 @@ const newPet = (e) => {
   cardsOnDom(pets)
   form.reset()
 }
-// 3. Add an event listener for the form submit and pass it the function (callback)
+
 form.addEventListener('submit', newPet)
+
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
 
 const app = document.querySelector("#app")
 
@@ -346,4 +334,8 @@ catsButton.addEventListener('click', () => {
 dinosButton.addEventListener('click', () => {
   const dinoPets = filter(pets, 'dino')
   cardsOnDom(dinoPets)
+})
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
 })
