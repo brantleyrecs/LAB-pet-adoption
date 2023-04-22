@@ -254,6 +254,7 @@ const cardsOnDom = (array) => {
     <p class="card-text">Special Skills: ${pet.specialSkill}</p>
     <p class="card-text">Type: ${pet.type}</p>
     <p class="card-text">Color: ${pet.color}</p>
+    <button class="btn btn-danger" id="delete--${pets.id}">Delete</button>
   </div>
 </div>`
   }
@@ -301,6 +302,17 @@ const newPet = (e) => {
 }
 // 3. Add an event listener for the form submit and pass it the function (callback)
 form.addEventListener('submit', newPet)
+
+const app = document.querySelector("#app")
+
+app.addEventListener('click', (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--")
+    const index = pets.findIndex(e => e.id === Number(id))
+    pets.splice(index, 1)
+    cardsOnDom(pets)
+  }
+})
 
 const allPetsButton = document.querySelector('#all-pets')
 const dogsButton = document.querySelector('#dogs')
