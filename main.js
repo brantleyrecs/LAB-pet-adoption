@@ -286,7 +286,7 @@ const newPet = (e) => {
     name: document.querySelector("#name").value,
     color: document.querySelector("#color").value,
     specialSkill: document.querySelector("#specialSkill").value,
-    type: document.querySelector("#type").value,
+    type: document.querySelector('input[id="type"]:checked').value,
     imageUrl: document.querySelector("#url").value,
   }
 
